@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Notebooks</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+    <link rel="icon" href="img/note.jpg" type="image/x-icon">
+</head>
+<body>
+    <h1>Registro de Notebooks</h1>
+
+    <div id="notebook-info">
+        <p>Notebooks disponibles: <span id="available-count">0</span></p>
+        <div id="search-filter">
+            <input type="text" id="search-input" placeholder="Buscar notebook...">
+            <button onclick="searchNotebooks()">Buscar</button>
+            <select id="filter-select" onchange="filterNotebooks()">
+                <option value="all">Todos</option>
+                <option value="available">Disponibles</option>
+                <option value="in-use">En uso</option>
+                <option value="damaged">Dañados</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="listas-container">
+        <div id="gabinete1">
+            <h3>Gabinete 1</h3>
+            <ul id="lista1"></ul>
+        </div>
+        <div id="gabinete2">
+            <h3>Gabinete 2</h3>
+            <ul id="lista2"></ul>
+        </div>
+        <div id="gabinete3">
+            <h3>Gabinete 3</h3>
+            <ul id="lista3"></ul>
+        </div>
+    </div>
+
+    <button id="pedir-button" class="hidden">Pedir</button>
+    <button id="devolver-button" class="hidden">Devolver</button>
+    <button onclick="generateReport()">Generar Reporte</button>
+
+    <div id="resultado"></div>
+
+    <div id="formulario" style="display: none;">
+        <h2>Formulario de petición</h2>
+        <form id="form-peticion">
+            <label for="notebook-number">Número de Notebook:</label>
+            <input type="number" id="notebook-number" required><br><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required><br><br>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="Profesor">Profesor</option>
+                <option value="Alumno">Alumno</option>
+            </select><br><br>
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required><br><br>
+            <label for="request-date">Fecha y hora:</label>
+            <input type="datetime-local" id="request-date" required><br><br>
+            <button type="button" onclick="searchNotebook()">Buscar información</button>
+            <button type="button" id="confirmar">Confirmar</button>
+            <button type="button" id="cerrar-formulario">Cerrar</button>
+        </form>
+    </div>
+
+    <div id="formulario-devolucion" style="display: none;">
+        <h2>Formulario de devolución</h2>
+        <form id="form-devolucion">
+            <label for="return-notebook-number">Número de Notebook:</label>
+            <input type="number" id="return-notebook-number" required><br><br>
+            <label for="return-state">Estado de la notebook:</label>
+            <select id="return-state" required>
+                <option value="good">Bueno</option>
+                <option value="damaged">Dañado</option>
+            </select><br><br>
+            <label for="return-comments">Comentarios o reporte de problemas:</label><br>
+            <textarea id="return-comments" rows="4" cols="50"></textarea><br><br>
+            <button type="button" id="confirmar-devolucion">Confirmar Devolución</button>
+            <button type="button" id="cerrar-formulario-devolucion">Cerrar</button>
+        </form>
+    </div>
+
+    <div id="notebook-history">
+        <h2>Historial de préstamos</h2>
+        <ul id="history-list">
+            <!-- Se llenará dinámicamente con JavaScript -->
+        </ul>
+    </div>
+
+    <script src="scripts/lista-peticion.js"></script>
+</body>
+</html>
+

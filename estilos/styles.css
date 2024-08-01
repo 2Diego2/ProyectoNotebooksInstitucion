@@ -1,0 +1,291 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(193, 214, 228);
+}
+
+main{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 50px;
+    color: aliceblue;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(27, 78, 136, 0.986);
+    box-shadow:  10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2{
+    text-align: center;
+    margin-top: 35px;
+}
+
+h3{
+    color: aliceblue;
+    text-align: center;
+    margin-top: 10px;
+    background-color: rgba(31, 87, 151, 0.986);
+    border-radius: 8px;
+    height: 35px;
+    box-shadow: 10px 10px 10px rgba(110, 110, 110, 0.3);
+}
+
+h4{
+    text-align: center;
+}
+
+
+#box{
+    margin-top: 70px;
+    margin-left: 630px;
+    height: 300px;
+    width: 300px;
+    background-color: rgb(204, 218, 231);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow:  10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#text {
+    margin-top: 0%;
+}
+
+
+#inicio{
+    color: aliceblue;
+    margin-top: 16px;
+    width: 100%;
+    height: 36px;
+    background-color:rgba(30, 91, 160, 0.986);
+    border:none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#inicio:active {
+    background-color:rgb(15, 48, 75); /* Verde más oscuro */
+}
+#boton{
+    color: rgb(0, 0, 0);
+    background-color: rgba(46, 121, 182, 0.336);
+    width: 100%;
+    padding:12px;
+    border-radius: 8px;
+    margin: 0 auto;
+    border: 100px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#boton:active{
+    background-color:rgba(22, 52, 77, 0.753);
+}
+
+#usuario{
+    margin-top: 20px;
+    color: rgb(0, 0, 0);;
+    background-color: rgba(175, 196, 214, 0.904);
+    width: 90%;
+    padding:12px;
+    border-radius: 4px;
+    margin: 0 auto;
+    border: 10px;
+}
+
+#password{
+    margin-top: 20px;
+    color: rgb(0, 0, 0);;
+    background-color: rgba(175, 196, 214, 0.904);
+    width: 90%;
+    padding:12px;
+    border-radius: 4px;
+    margin: 0 auto;
+    border: 10px;
+}
+
+#uno{
+    cursor: pointer;
+    position: absolute;
+    margin-left: 21%;
+    height: 300px;
+    width: 300px;
+    background-color: rgb(204, 218, 231);
+    border-radius: 12px;
+    margin-top: 45px;
+    transition: transform 0.3s ease;
+    box-shadow:  10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#uno:active {
+    transform: scale(0.9);
+    background-color:rgb(146, 165, 184);
+}
+
+#dos{
+    cursor: pointer;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    background-color: rgb(204, 218, 231);
+    border-radius: 12px;
+    margin-left: 60%;
+    margin-top: 45px;
+    transition: transform 0.3s ease;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#dos:active {
+    transform: scale(0.9);
+    background-color:rgb(146, 165, 184);
+}
+
+#uno:hover, #dos:hover {
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+
+.footer{
+    color: aliceblue;
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    margin-top: 40%;
+    background-color: rgba(27, 78, 136, 0.986);
+}
+
+.listas-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 20px;
+}
+li {
+    margin: 4px 0;
+    background-color: rgba(62, 221, 41, 0.521);
+    width: 380px;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    box-shadow: 10px 10px 10px rgba(110, 110, 110, 0.3);
+
+}
+
+li:hover {
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+
+li:active {
+    transform: scale(0.9);
+    background-color: rgb(119, 135, 151);
+}
+
+li:active{
+    background-color: rgba(255, 45, 45, 0.616);
+}
+
+.selected {
+    background-color: rgba(255, 45, 45, 0.616);;
+}
+
+i{
+    position: relative;
+    font-size: 60px;
+    margin-top: 30px;
+    margin-left: 110px;
+    color: rgba(33, 99, 175, 0.986);
+}
+/* Botón estilo cuadrado */
+#pedir-button {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Ocultar el botón inicialmente */
+.hidden {
+    display: none;
+}
+
+/* Estilo para notebooks seleccionadas */
+.selected {
+    background-color: #d3d3d3; /* Un gris claro para destacar */
+}
+/* ... (mantener los estilos existentes) */
+
+#notebook-info {
+    margin: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+#search-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#search-input, #filter-select {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#notebook-history {
+    margin: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#history-list li {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+/* Estilos para los estados de las notebooks */
+li[data-notebook-estado="available"] {
+    background-color: rgba(62, 221, 41, 0.521);
+}
+
+li[data-notebook-estado="in-use"] {
+    background-color: rgba(255, 165, 0, 0.521);
+}
+
+li[data-notebook-estado="damaged"] {
+    background-color: rgba(255, 0, 0, 0.521);
+}
+
+/* ... (mantener los demás estilos) */
