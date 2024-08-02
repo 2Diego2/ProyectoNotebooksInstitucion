@@ -6,8 +6,8 @@ if ($conexion->connect_error) {
 }
 
 $notebook_ids = json_decode($_POST['notebook_ids'], true);
-$return_state = $_POST['return_state'];
-$return_comments = $_POST['return_comments'];
+$return_state = $_POST['return_state'] ?? 'good';
+$return_comments = $_POST['return_comments'] ?? '';
 
 $response = array();
 
@@ -22,7 +22,7 @@ foreach ($notebook_ids as $notebook_id) {
     $stmt->close();
 
     // Registrar fecha de devolución en Uso_Notebook
-    $stmt = $conexion->prepare("UPDATE Uso_Notebook SET Fecha_Hasta = NOW(), Comentarios = ? WHERE ID_Notebook = ? AND Fecha_Hasta IS NULL");
+    $stmt = $conexion->prepare("UPDATE Uso_Notebook SET Fecha_Hasta = NOW(), Observaciones = ? WHERE ID_Notebook = ? AND Fecha_Hasta IS NULL");
     $stmt->bind_param("si", $return_comments, $notebook_id);
     if (!$stmt->execute()) {
         $response['error'][] = "Error al registrar la devolución de la notebook {$notebook_id}: " . $stmt->error;

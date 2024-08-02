@@ -28,6 +28,11 @@ $stmt->close();
 
 // Registrar uso y actualizar estado de cada notebook
 foreach ($notebook_ids as $notebook_id) {
+    if (empty($notebook_id)) {
+        $response['error'][] = "ID_Notebook no puede ser nulo.";
+        continue;
+    }
+    
     // Actualizar estado de la notebook a 'Ocupado'
     $stmt = $conexion->prepare("UPDATE Notebook SET Estado = 'Ocupado' WHERE ID_Notebook = ?");
     if (!$stmt) {

@@ -275,6 +275,17 @@ i{
     border-radius: 3px;
 }
 
+
+/* para resaltar las notebooks seleccionadas y ocupadas:*/ 
+.notebook-item.selected {
+    background-color: yellow; /* Color de fondo para la selección */
+}
+
+.notebook-item.ocupado {
+    color: red; /* Color del texto para notebooks ocupadas */
+}
+
+
 /* Estilos para los estados de las notebooks */
 li[data-notebook-estado="available"] {
     background-color: rgba(62, 221, 41, 0.521);
@@ -287,5 +298,6 @@ li[data-notebook-estado="in-use"] {
 li[data-notebook-estado="damaged"] {
     background-color: rgba(255, 0, 0, 0.521);
 }
+
 
 /* ... (mantener los demás estilos) */
