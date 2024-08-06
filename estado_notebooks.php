@@ -9,10 +9,10 @@ if ($conexion->connect_error) {
 $filtro = isset($_GET['filtro']) ? $_GET['filtro'] : '';
 
 $sql = "SELECT n.ID_Notebook, n.Estado, COALESCE(p.Nombre, '') as UltimoUsuario,
-           (SELECT GROUP_CONCAT(pr.Nombre SEPARATOR ', ') 
-            FROM Programa pr 
-            JOIN Instalacion_Programa ip ON pr.ID_Programa = ip.ID_Programa 
-            WHERE ip.ID_Notebook = n.ID_Notebook) as Programas
+              (SELECT GROUP_CONCAT(pr.Nombre SEPARATOR ' ') 
+               FROM Programa pr 
+               JOIN Instalacion_Programa ip ON pr.ID_Programa = ip.ID_Programa 
+               WHERE ip.ID_Notebook = n.ID_Notebook) as Programas
         FROM Notebook n
         LEFT JOIN Uso_Notebook un ON n.ID_Notebook = un.ID_Notebook AND un.Fecha_Hasta IS NULL
         LEFT JOIN Persona p ON un.ID_Persona = p.ID_Persona";

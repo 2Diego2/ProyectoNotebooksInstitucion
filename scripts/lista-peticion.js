@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let selectedNotebook = null;
-
     function toggleSelection(event) {
         const selectedItem = event.target;
 
@@ -93,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function pedirNotebook() {
         const seleccionados = document.querySelectorAll('.selected');
         if (seleccionados.length === 0) {
-            alert("Por favor, seleccione una notebook.");
+            alert("Por favor seleccione una notebook.");
             return;
         }
         document.getElementById("formulario").style.display = "block";
@@ -106,15 +104,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const dni = document.getElementById('dni').value;
 
         if (!nombre || !apellido || !tipo || !dni) {
-            alert("Por favor, complete todos los campos.");
+            alert("Por favor complete todos los campos.");
             return;
         }
 
         const seleccionados = document.querySelectorAll('.selected');
-        const ids = Array.from(seleccionados).map(item => item.dataset.notebookId).join(',');
+        const ids = Array.from(seleccionados).map(item => item.dataset.notebookId);
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "pedir_notebook.php", true);
+        xhr.open("POST", "peticion.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onload = function() {
             if (xhr.status === 200) {
@@ -125,19 +123,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Error al realizar el pedido.");
             }
         };
-        xhr.send(`id_notebooks=${ids}&nombre=${nombre}&apellido=${apellido}&tipo=${tipo}&dni=${dni}`);
+        xhr.send(`notebook_ids=${JSON.stringify(ids)}&nombre=${nombre}&apellido=${apellido}&tipo=${tipo}&dni=${dni}`);
     }
 
     function devolverNotebook() {
         const seleccionados = document.querySelectorAll('.selected');
         if (seleccionados.length === 0) {
-            alert("Por favor, seleccione una notebook.");
+            alert("Por favor seleccione una notebook.");
             return;
         }
-        const ids = Array.from(seleccionados).map(item => item.dataset.notebookId).join(',');
+        const ids = Array.from(seleccionados).map(item => item.dataset.notebookId);
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "devolver_notebook.php", true);
+        xhr.open("POST", "devolucion.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onload = function() {
             if (xhr.status === 200) {
@@ -148,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Error al realizar la devolución.");
             }
         };
-        xhr.send(`id_notebooks=${ids}`);
+        xhr.send(`notebook_ids=${JSON.stringify(ids)}`);
     }
 
     document.getElementById("filtro").addEventListener("change", aplicarFiltro);
@@ -160,7 +158,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     cargarNotebooks(); // Cargar todas las notebooks al inicio
 });
-
 function mostrarFormulario() {
     document.getElementById('formulario').style.display = 'block';
 }
@@ -176,6 +173,7 @@ function mostrarFormularioDevolucion() {
 function cerrarFormularioDevolucion() {
     document.getElementById('formulario-devolucion').style.display = 'none';
 }
+
 
 /*
 //A continuación la creacion de listas de
